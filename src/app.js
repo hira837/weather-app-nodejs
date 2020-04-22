@@ -26,19 +26,19 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather App',
-    name: 'Yuki'
+    name: 'Yuki Hirayama'
   })
 })
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About Me',
-    name: 'Yuki'
+    name: 'Yuki Hirayama'
   })
 })
 app.get('/help', (req, res) => {
   res.render('help', {
-    title: 'Help Me',
-    name: 'Yuki'
+    title: 'Help',
+    name: 'Yuki Hirayama'
   })
 })
 
@@ -48,7 +48,7 @@ app.get('/weather', (req, res) => {
       error: 'You must provide an addres'
     })
   }
-  geocode(req.query.address, (error, { latitude, longitude, location }) => {
+  geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
     if (error) {
       return res.send({ error });
     }
@@ -83,7 +83,7 @@ app.get('/help/*', (req, res) => {
   res.render('404', {
     title: '404',
     errorMessage: 'Help article not found',
-    name: 'Yuki'
+    name: 'Yuki Hirayama'
   })
 })
 
@@ -91,7 +91,7 @@ app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
     errorMessage: 'Page not found',
-    name: 'Yuki'
+    name: 'Yuki Hirayama'
   })
 })
 
